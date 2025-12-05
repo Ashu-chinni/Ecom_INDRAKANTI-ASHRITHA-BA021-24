@@ -102,7 +102,7 @@ st.markdown(
 
 # Adjust these paths for your GitHub/Streamlit project structure
 # For Streamlit Cloud, put the Excel files in a "data" folder next to app.py
-SALES_FILE = Path("data/enchanto_sales_simulated_2024.xlsx")
+SALES_FILE = Path("enchanto_sales_simulated_2024.xlsx")
 INVENTORY_TEMPLATE_FILE = Path("data/enchanto_inventory_solver_template.xlsx")  # optional, loaded if you want later
 
 

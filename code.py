@@ -452,14 +452,17 @@ with st.sidebar:
     )
     region = st.selectbox("Region", options=regions_for_sku)
 
+   # Current stock is read-only: taken from the latest "Stock After Sale" in the Excel
     computed_stock = get_current_stock(sales, sku, region)
-    current_stock = st.number_input(
+
+    st.metric(
         "Current stock in this region (units)",
-        min_value=0.0,
-        value=float(computed_stock),
-        step=1.0,
-        help="Default is last 'Stock After Sale' from the dataset; you can override it."
+        value=int(computed_stock),
+        help="Pulled from the latest 'Stock After Sale' in the transaction data."
     )
+
+    # Use this fixed value in all downstream calculations
+    current_stock = float(computed_stock)
 
     inbound_units = st.number_input(
         "Inbound stock for this SKU (total units across regions)",
